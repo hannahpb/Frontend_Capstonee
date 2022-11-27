@@ -1,0 +1,146 @@
+.nav-square{
+    width: 100%;
+    border-radius: 1px;
+    background-color: #17A2B8;
+    padding:20px;
+  }
+
+.user-profile-name{
+    margin-top: -55px;
+    font-size: 20;
+}
+.user-profile-email{
+    font-size: 20;
+}
+
+
+.header-title{
+    margin-left: 200px;
+    
+}
+
+.confirm-image{
+    margin-left: 550px;
+}
+ 
+
+.card-body{
+    border: 5px;
+    width: 1555px;
+    margin-left: -50px;
+    height: 100%;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+    margin-top: -30px;
+
+}
+
+.header-image{
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.clinic-image{
+    margin-top: -100px;
+    margin-left: 100px;
+}
+
+.dental-image{
+    margin-top: -100px;
+    margin-left: 110px;
+}
+
+.medcerti-image{
+    margin-top: -155px;
+    margin-left: 55px;
+}
+
+
+.medcert-text{
+    text-align: justify;
+    font-size: 15px;
+    margin-left: -15px;
+}
+
+.body-card{
+    border: 10px;
+    width: 290px;
+    height: 200px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+    margin-left: 150px;
+    border-radius: 10px;
+    margin-top: 40px;
+
+}
+
+.body-card-one{
+    border: 10px;
+    width: 290px;
+    height: 200px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+    margin-left: 650px;
+    border-radius: 10px;
+    margin-top: -200px;
+
+}
+
+.body-card-two{
+    border: 10px;
+    width: 290px;
+    height: 200px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+    margin-left: 1120px;
+    border-radius: 10px;
+    margin-top: -200px;
+
+}
+
+
+.body-title{
+    font-size: 20px;
+    margin-left: 60px;
+    margin-top: 120px;
+    font-family: monospace;
+}
+
+.body-title-one{
+    font-size: 20px;
+    margin-left: 60px;
+    margin-top: 120px;
+    font-family: monospace;
+}
+
+.body-title-two{
+    font-size: 20px;
+    margin-left: 60px;
+    margin-top: 120px;
+    font-family: monospace;
+}
+
+
+.header-title{
+    font-size:45px;
+    margin-left: 30px;
+    padding-top:100px;
+    font-family: monospace;
+    
+
+}
+
+.confirmation{
+    margin-left: 20px;
+}
+
+.pending{
+    font-size: 20px;
+    font-family: monospace;
+}
+
+.accept{
+    font-size: 20px;
+    font-family: monospace;
+
+}
