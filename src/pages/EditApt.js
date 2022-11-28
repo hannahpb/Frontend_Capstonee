@@ -56,9 +56,9 @@ const EditAptClinic = ({userdata}) => {
         <>
         <Navbar />
         <div className="col-sm-6 offset-sm-3">
-            <h4>Verify Appointment
-                <Link to={'/apt'} className="btn btn-danger btn-sm float-end"> BACK</Link>
-             </h4>
+        <br></br>
+            <text style={{fontSize:35, marginLeft:220, fontFamily:'monospace'}}>Verify Appointment</text>
+      
             <form onSubmit={(e) => updateStudent(e)} >
                 <div className="form-group mb-3">
                     <label>First Name</label>
@@ -93,7 +93,7 @@ const EditAptClinic = ({userdata}) => {
                 <div className="form-group mb-3">
                     <label>Appointment Verification</label>
                     <select type="text"  name="aptverify" onChange={(e) => handleInput(e)}  value={studentInput.aptverify} className="form-control">
-                        <option value="TBA">TBA</option>
+                        <option value="Processing">Processing</option>
                         <option value="Accepted">Accepted</option>
                         <option value="Not Accepted">Not Accepted</option>
                     </select>
@@ -105,6 +105,7 @@ const EditAptClinic = ({userdata}) => {
                     <span className="text-danger">{errorInput.user_id}</span>
                 </div>
                 <div className="form-group mb-3">
+                <Link to={'/apt'} className="btn btn-danger btn-sm float-end"> BACK</Link>
                     <button type="submit" id="updatebtn" className="btn btn-primary">Verify Appointment</button>
                 </div>
             </form>

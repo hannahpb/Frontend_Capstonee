@@ -52,10 +52,11 @@ const EditMedCert = ({userdata}) => {
     return(
         <>
         <Navbar />
-        <div>
-            <h4>Edit Doctor
-                <Link to={'/med'} className="btn btn-danger btn-sm float-end"> BACK</Link>
-             </h4>
+        <div className="col-sm-6 offset-sm-3">
+        <br></br>
+            <text style={{fontSize:35, marginLeft:280, fontFamily:'monospace'}}>Edit Doctor
+                
+             </text>
             <form onSubmit={(e) => updateMedCert(e)} >
                 <div className="form-group mb-3">
                     <label>First Name</label>
@@ -91,6 +92,7 @@ const EditMedCert = ({userdata}) => {
                     <span className="text-danger">{errorInput.uid}</span>
                 </div>
                 <div className="form-group mb-3">
+                <Link to={'/med'} className="btn btn-danger btn-sm float-end"> BACK</Link>
                     <button type="submit" id="updatebtn" className="btn btn-primary">Update Medical Certificate</button>
                 </div>
             </form>
