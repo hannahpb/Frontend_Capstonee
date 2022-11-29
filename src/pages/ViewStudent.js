@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./Navbar";
 import LineChart from "./LineChart";
@@ -12,8 +12,11 @@ function Dashboard() {
   const [students, setStudents] = useState([]);
   const [data, setData] = useState('');
 
+  //count
   const [female, setFemale] = useState('');
   const [male, setMale] = useState('');
+  const [stud, setStud] = useState('');
+  const [emp, setEmp] = useState('');
 
   //Religion
   const [rc, setRC] = useState('');
@@ -33,6 +36,7 @@ function Dashboard() {
   const [third, setThird] = useState('');
   const [fourth, setFourth] = useState('');
   const [fifth, setFifth] = useState('');
+  const [sixth, setSixth] = useState('');
 
   //course
   const [eng, setEng] = useState('');
@@ -47,14 +51,7 @@ function Dashboard() {
   const [ccms, setCCMS] = useState('');
   const [htm, setHTM] = useState('');
 
-  const history = useNavigate();
-  function logout()
-  {
-    localStorage.clear();
-    history("/")
-  }
 
-  let user = JSON.parse(localStorage.getItem('user-info'))
 
   useEffect(() => {
     axios.get(`/api/students`).then((res) => {
@@ -229,6 +226,24 @@ function Dashboard() {
           setHTM(response.data.all)
       }
     });
+    axios.get('/api/studcount').then(response => {
+      if(response.status === 200)
+      {
+          setStud(response.data.all)
+      }
+    });
+    axios.get('/api/employeecount').then(response => {
+      if(response.status === 200)
+      {
+          setEmp(response.data.all)
+      }
+    });
+    axios.get('/api/sixth').then(response => {
+      if(response.status === 200)
+      {
+          setSixth(response.data.all)
+      }
+    });
   }, []);
 
   if (loading) {
@@ -242,6 +257,7 @@ function Dashboard() {
           <td>{item.id}</td>
           <td>{item.fname}</td>
           <td>{item.lname}</td>
+          <td>{item.category}</td>
           <td>{item.bday}</td>
           <td>{item.sex}</td>
           <td>{item.phone}</td>
@@ -289,9 +305,16 @@ function Dashboard() {
       <Navbar />
       <div>
         <div style={{ marginLeft: 40, marginTop:45 }}>
-          <h4>Total Number of Students: {data}</h4>
+         
+        </div>
+        <br></br>
+        <br></br>
+        <div style={{ marginLeft: 100 }}>
+          <h4>Total Number of Users: {data}</h4>
           <h4>Total Number of Female Students: {female}</h4>
           <h4>Total Number of Male Students: {male}</h4>
+          <h4>Total Number of Students: {stud}</h4>
+          <h4>Total Number of Employees: {emp}</h4>
         </div>
         <br></br>
         <br></br>
@@ -306,7 +329,7 @@ function Dashboard() {
           <h6>Total Seperated: {sep}</h6>
           <h6>Total Prefer not to say: {pref}</h6>
         </div>
-        <div style={{ marginLeft: 750, marginTop: -200 }}>
+        <div style={{ marginLeft: 750, marginTop: -180 }}>
           <h4>Religion Chart</h4>
           <LineChart/>
         </div>
@@ -317,8 +340,7 @@ function Dashboard() {
           <h6>Total Iglesia: {ig}</h6>
           <h6>Total Prefer not to say: {prr}</h6>
         </div>
-        <br></br>
-        <div style={{ marginLeft: 100, marginTop: 100}}>
+        <div style={{ marginLeft: 100}}>
           <h4>Year Level Chart</h4>
           <YRBChart/>
         </div>
@@ -329,6 +351,7 @@ function Dashboard() {
           <h6>Total Third Year: {third}</h6>
           <h6>Total Fourth Year: {fourth}</h6>
           <h6>Total Fifth Year: {fifth}</h6>
+          <h6>Total Employee: {sixth}</h6>
         </div>
         <div style={{ marginLeft: 750, marginTop: -200 }}>
           <h4>Course Chart</h4>
@@ -349,28 +372,27 @@ function Dashboard() {
           <h6>Total Hospitality and Tourism Management: {htm}</h6>
         </div>
         <br></br>
-        <br></br>
         <hr></hr>
-  
-        <h3 style={{ marginLeft: 50 }}>
-          Students Data
+        <br></br>
+        <h4 style={{ marginLeft: 50 }}>
+          Medical Data
           <Link
             to={"/add-students"}
             className="btn btn-primary btn-sm float-end"
           >
             {" "}
-            Add Student
+            Add User
           </Link>
-        </h3>
+        </h4>
       </div>
       <div>
         <table className="table table-bordered table-striped">
-          <br></br>
           <thead>
             <tr>
               <th>ID</th>
               <th>First Name</th>
               <th>Last Name</th>
+              <th>Category</th>
               <th>Birthdate</th>
               <th>Sex</th>
               <th>Phone</th>

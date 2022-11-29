@@ -39,7 +39,6 @@ class DentalAppointment extends Component
                         <td>{item.id}</td>
                         <td>{item.fname}</td>
                         <td>{item.lname}</td>
-                        <td>{item.aptcategory}</td>
                         <td>{item.aptdate}</td>
                         <td>{item.apttime}</td>
                         <td>{item.aptpurpose}</td>
@@ -82,7 +81,6 @@ class DentalAppointment extends Component
                                 <th>ID</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
-                                <th>Appointment Category</th>
                                 <th>Appointment Date</th>
                                 <th>Appointment Time</th>
                                 <th>Appointment Purpose</th>

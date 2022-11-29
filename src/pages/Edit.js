@@ -25,6 +25,7 @@ const Edit = ({userdata}) => {
         const data = {
             fname: studentInput.fname || state.fname,
             lname: studentInput.lname || state.lname,
+            category: studentInput.category || state.category,
             bday: studentInput.bday || state.bday,
             sex: studentInput.sex || state.sex,
             phone: studentInput.phone || state.phone,
@@ -59,6 +60,7 @@ const Edit = ({userdata}) => {
         <img src="/student.png" alt="bg" width={450} height={350} style={{  marginTop: 35, marginLeft:550 }} ></img> 
         <div className="col-sm-6 offset-sm-3">
             <h3>Edit Students</h3>
+
             <form onSubmit={(e) => updateStudent(e)} >
                 <div className="form-group mb-3">
                     <label>First Name</label>
@@ -71,6 +73,13 @@ const Edit = ({userdata}) => {
                     <span className="text-danger">{errorInput.lname}</span>
                 </div>
                 <div className="form-group mb-3">
+                    <label>Category</label>
+                    <select type="text" name="category" onChange={(e) => handleInput(e)} value={studentInput.category} className="form-control">
+                        <option value="Student">Student</option>
+                        <option value="Employee">Employee</option>
+                    </select>
+                </div>
+                <div className="form-group mb-3">
                     <label>Birthdate</label>
                     <input type="text" style={{ height:50 }} name="bday" onChange={(e) => handleInput(e)} value={studentInput.bday}  className="form-control" disabled/>
                     <span className="text-danger">{errorInput.bday}</span>
@@ -80,7 +89,6 @@ const Edit = ({userdata}) => {
                     <select type="text" name="sex" onChange={(e) => handleInput(e)} value={studentInput.sex} className="form-control">
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
-                        <option value="Prefer not to say">Prefer not to say</option>
                     </select>
                 </div>
                 <div className="form-group mb-3">
@@ -98,6 +106,11 @@ const Edit = ({userdata}) => {
                         <option value="Psychology">Psychology</option>
                         <option value="Architecture">Architecture</option>
                         <option value="Accountancy">Accountancy</option>
+                        <option value="Arts and Science">Arts and Science</option>
+                        <option value="Criminology">Criminology</option>
+                        <option value="Computing and Multimedia Studies">Computing and Multimedia Studies</option>
+                        <option value="Hospitality and Tourism Management">Hospitality and Tourism Management</option>
+                        <option value="N/A">N/A</option>
                     </select>
                 </div>
                 <div className="form-group mb-3">
@@ -108,6 +121,7 @@ const Edit = ({userdata}) => {
                         <option value="3rdYear">3rd Year</option>
                         <option value="4thYear">4th Year</option>
                         <option value="5thYear">5th Year</option>
+                        <option value="N/A">N/A</option>
                     </select>
                 </div>
                 <div className="form-group mb-3">

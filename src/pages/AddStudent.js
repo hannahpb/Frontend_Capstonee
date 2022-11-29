@@ -7,6 +7,7 @@ function AddStudent() {
   const history = useNavigate();
   const [fname, setFname]=useState("")
   const [lname, setlname]=useState("")
+  const [category, setCategory]=useState("")
   const [bday, setbday]=useState("")
   const [sex, setsex]=useState("")
   const [course, setcourse]=useState("")
@@ -22,6 +23,7 @@ function AddStudent() {
     const formData = new FormData();
     formData.append('fname', fname);
     formData.append('lname', lname);
+    formData.append('category', category);
     formData.append('bday', bday);
     formData.append('sex', sex);
     formData.append('course', course);
@@ -61,7 +63,6 @@ function AddStudent() {
 
   /*const saveStudent = (e) => {
     e.preventDefault();
-
     const data = {
       fname: studentInput.fname,
       lname: studentInput.lname,
@@ -74,7 +75,6 @@ function AddStudent() {
       religion: studentInput.religion,
       cvs: studentInput.cvs,
     };
-
     axios.post(`/api/add-student`, data).then((res) => {
       if (res.data.status === 200) {
         swal("Success!", res.data.message, "success");
@@ -104,8 +104,7 @@ function AddStudent() {
       <img src="/stud.png" alt="bg" width={430} height={350} style={{  marginTop: 25, marginLeft:550 }} ></img> 
       <div className="col-sm-6 offset-sm-3">
         <h4>
-          Add Students
-      
+          Add User
         </h4>
       </div>
       <div className="col-sm-6 offset-sm-3">
@@ -128,6 +127,13 @@ function AddStudent() {
               onChange={(e) => setlname(e.target.value)}
               className="form-control"
             />
+          </div>
+          <div className="form-group mb-3">
+            <label>Category</label>
+            <select type="text" name="category" onChange={(e) => setCategory(e.target.value)} className="form-control">
+              <option value="Student">Student</option>
+              <option value="Employee">Employee</option>
+            </select>
           </div>
           <div className="form-group mb-3">
             <label>Birthdate</label>
@@ -170,6 +176,7 @@ function AddStudent() {
               <option value="Criminology">Criminology</option>
               <option value="Computing and Multimedia Studies">Computing and Multimedia Studies</option>
               <option value="Hospitality and Tourism Management">Hospitality and Tourism Management</option>
+              <option value="N/A">N/A</option>
             </select>
           </div>
           <div className="form-group mb-3">
@@ -180,6 +187,7 @@ function AddStudent() {
               <option value="3rdYear">3rd Year</option>
               <option value="4thYear">4th Year</option>
               <option value="5thYear">5th Year</option>
+              <option value="N/A">N/A</option>
             </select>
           </div>
           <div className="form-group mb-3">
@@ -224,13 +232,13 @@ function AddStudent() {
             <input type="file" name="uri" onChange={(e) => seturi(e.target.files[0])} className="form-control" />
           </div>
           <div className="form-group mb-3">
-            <button type="submit" onClick={addstudent} className="btn btn-primary">
-              Save Student
-            </button>
-            <Link to={"/dashboard"} className="btn btn-danger btn-sm float-end">
+          <Link to={"/dashboard"} className="btn btn-danger btn-sm float-end">
             {" "}
             BACK
           </Link>
+            <button type="submit" onClick={addstudent} className="btn btn-primary">
+              Save Student
+            </button>
           </div>
       </div>
     </>
